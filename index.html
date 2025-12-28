@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dharmendra Kumar Jaiswal | IT Professional</title>
+    <style>
+        /* --- CSS VARIABLES & RESET --- */
+        :root {
+            --primary-color: #0056b3; /* Professional IT Blue */
+            --secondary-color: #2c3e50; /* Dark Slate */
+            --accent-color: #1abc9c; /* Teal for highlights */
+            --light-bg: #f4f7f6;
+            --white: #ffffff;
+            --text-color: #333333;
+            --shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--light-bg);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        a { text-decoration: none; color: inherit; transition: 0.3s; }
+        ul { list-style: none; }
+
+        /* --- NAVIGATION --- */
+        nav {
+            background: var(--white);
+            box-shadow: var(--shadow);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            padding: 1rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--primary-color);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 20px;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-color);
+        }
+
+        /* --- HERO SECTION --- */
+        .hero {
+            background: linear-gradient(135deg, var(--secondary-color), var(--primary-color));
+            color: var(--white);
+            padding: 100px 5%;
+            text-align: center;
+        }
+
+        .hero h1 { font-size: 2.5rem; margin-bottom: 10px; }
+        .hero p { font-size: 1.2rem; margin-bottom: 20px; opacity: 0.9; }
+        .btn {
+            background: var(--accent-color);
+            color: var(--white);
+            padding: 10px 25px;
+            border-radius: 5px;
+            font-weight: bold;
+            display: inline-block;
+        }
+        .btn:hover { background: #16a085; transform: translateY(-2px); }
+
+        /* --- SECTIONS COMMON --- */
+        section { padding: 60px 5%; }
+        .section-title {
+            text-align: center;
+            font-size: 2rem;
+            color: var(--secondary-color);
+            margin-bottom: 40px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* --- ABOUT & SUMMARY --- */
+        .about-content {
+            background: var(--white);
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: var(--shadow);
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        /* --- SKILLS GRID --- */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .skill-card {
+            background: var(--white);
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: var(--shadow);
+            border-left: 5px solid var(--primary-color);
+        }
+        .skill-card h3 { color: var(--primary-color); margin-bottom: 10px; }
+
+        /* --- EXPERIENCE & EDUCATION (Timeline Style) --- */
+        .timeline-item {
+            background: var(--white);
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            box-shadow: var(--shadow);
+            border-left: 4px solid var(--accent-color);
+        }
+        .timeline-date { color: #777; font-size: 0.9rem; font-style: italic; }
+        .timeline-role { font-weight: bold; font-size: 1.1rem; color: var(--secondary-color); }
+        .timeline-org { color: var(--primary-color); font-weight: 600; }
+
+        /* --- VISUAL NARRATIVES (GALLERY) --- */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 15px;
+        }
+
+        .gallery-item {
+            position: relative;
+            height: 250px;
+            background-color: #ddd;
+            border-radius: 8px;
+            overflow: hidden;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #555;
+            font-weight: bold;
+        }
+        
+        /* Placeholder styling for images */
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.4s;
+        }
+
+        .gallery-item:hover img { transform: scale(1.05); }
+
+        .gallery-overlay {
+            position: absolute;
+            bottom: 0;
+            background: rgba(0,0,0,0.6);
+            color: white;
+            width: 100%;
+            padding: 10px;
+            text-align: center;
+            opacity: 0;
+            transition: 0.3s;
+        }
+        .gallery-item:hover .gallery-overlay { opacity: 1; }
+
+        /* --- CONTACT --- */
+        .contact-container {
+            text-align: center;
+            background: var(--white);
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: var(--shadow);
+        }
+        .contact-item { margin: 15px 0; font-size: 1.1rem; }
+
+        /* --- FOOTER --- */
+        footer {
+            background: var(--secondary-color);
+            color: var(--white);
+            text-align: center;
+            padding: 20px;
+            margin-top: 50px;
+        }
+
+        /* --- RESPONSIVE --- */
+        @media (max-width: 768px) {
+            .nav-links { display: none; } /* Simplified for demo */
+            .hero h1 { font-size: 2rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo">DKJ Portfolio</div>
+        <ul class="nav-links">
+            <li><a href="#about">About</a></li>
+            <li><a href="#experience">Experience</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#gallery">Visual Narratives</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <header class="hero">
+        <h1>Dharmendra Kumar Jaiswal</h1>
+        <p>IT Professional | Cloud Computing Student | Technical Trainer</p>
+        <p><i>Specializing in Windows Administration, Office 365, & Hardware Support</i></p>
+        <br>
+        <a href="#contact" class="btn">Get in Touch</a>
+    </header>
+
+    <section id="about">
+        <h2 class="section-title">Professional Profile</h2>
+        <div class="about-content">
+            <p>
+                Dynamic and detail-oriented IT professional with expertise in Windows 10/11 administration, 
+                hardware maintenance, and Office 365 support. Skilled in troubleshooting DNS, DHCP, VPN, 
+                and Outlook-related issues while ensuring minimal downtime. Proficient in OS installations, 
+                software deployments, and endpoint security. Known for delivering reliable technical solutions 
+                and ensuring smooth IT operations across diverse environments.
+            </p>
+        </div>
+    </section>
+
+    <section id="experience">
+        <h2 class="section-title">Work Experience</h2>
+        
+        <div class="timeline-item">
+            <div class="timeline-role">Technical Trainer</div>
+            <div class="timeline-org">Jetking Infotrain Ltd.</div>
+            <div class="timeline-date">April 2024 - October 2025</div>
+            <ul>
+                <li>• Training students on desktop and network support concepts.</li>
+                <li>• Providing hands-on experience in router/switch configurations and cloud computing.</li>
+                <li>• Teaching IT infrastructure security and Office 365 administration.</li>
+            </ul>
+        </div>
+
+        <div class="timeline-item">
+            <div class="timeline-role">Packer & Picker</div>
+            <div class="timeline-org">Amazon Facility Ltd.</div>
+            <div class="timeline-date">March 2022 - June 2023</div>
+            <ul>
+                <li>• Gained experience in industrial work culture and protocol adherence.</li>
+            </ul>
+        </div>
+    </section>
+
+    <section id="skills">
+        <h2 class="section-title">Technical Expertise</h2>
+        <div class="skills-grid">
+            <div class="skill-card">
+                <h3>System Administration</h3>
+                <p>Windows 10/11, OS Imaging & Recovery, Patch Management, Antivirus Deployment.</p>
+            </div>
+            <div class="skill-card">
+                <h3>Networking</h3>
+                <p>DNS, DHCP, VPN Configuration, Router & Switch Config, Network Troubleshooting.</p>
+            </div>
+            <div class="skill-card">
+                <h3>Cloud & Tools</h3>
+                <p>Office 365, Outlook/Exchange, Ticketing Tools, Basic Cloud Computing.</p>
+            </div>
+            <div class="skill-card">
+                <h3>Hardware</h3>
+                <p>Desktop/Laptop Maintenance, Component-level Diagnostics, Upgrades.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="education">
+        <h2 class="section-title">Education & Certifications</h2>
+        <div class="timeline-item">
+            <div class="timeline-role">MCA in Cloud Computing (Distance)</div>
+            <div class="timeline-org">Chandigarh University</div>
+            <div class="timeline-date">July 2025 - April 2027</div>
+        </div>
+        <div class="timeline-item">
+            <div class="timeline-role">Master in Cloud Computing (MCC)</div>
+            <div class="timeline-org">Jetking Infotrain Ltd.</div>
+            <div class="timeline-date">March 2023 - April 2024</div>
+        </div>
+        <div class="timeline-item">
+            <div class="timeline-role">B.Sc. in Mathematics</div>
+            <div class="timeline-org">Mumbai University</div>
+            <div class="timeline-date">June 2021 - March 2024</div>
+        </div>
+    </section>
+
+    <section id="gallery">
+        <h2 class="section-title">Visual Narratives</h2>
+        <p style="text-align:center; margin-bottom:30px;">A collection of professional milestones and personal journeys.</p>
+        
+        <div class="gallery-grid">
+            <div class="gallery-item">
+                <img src="https://via.placeholder.com/400x300?text=Workplace+Setup" alt="Workplace">
+                <div class="gallery-overlay">Workplace Setup</div>
+            </div>
+            <div class="gallery-item">
+                <img src="https://via.placeholder.com/400x300?text=Training+Session" alt="Training">
+                <div class="gallery-overlay">Training Sessions</div>
+            </div>
+            <div class="gallery-item">
+                <img src="https://via.placeholder.com/400x300?text=Tech+Events" alt="Events">
+                <div class="gallery-overlay">Tech Events</div>
+            </div>
+        </div>
+        
+        <div style="text-align:center; margin-top:20px;">
+            <button class="btn" onclick="alert('Upload functionality would go here!')">Add Photo to Gallery</button>
+        </div>
+    </section>
+
+    <section id="contact">
+        <h2 class="section-title">Contact Information</h2>
+        <div class="contact-container">
+            <p class="contact-item"><strong>Email:</strong> Jaiswaldharmendra321@gmail.com</p>
+            <p class="contact-item"><strong>Phone:</strong> +91 9794228829</p>
+            <p class="contact-item"><strong>Address:</strong> Mandala, Mankhurd, Mumbai 400043</p>
+            <p class="contact-item"><strong>Languages:</strong> English, Hindi, Marathi, Spanish (Learning)</p>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 Dharmendra Kumar Jaiswal. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Dynamic Greeting in Console
+        console.log("Welcome to Dharmendra's Professional Portfolio");
+    </script>
+</body>
+</html>
